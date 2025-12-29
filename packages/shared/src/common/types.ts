@@ -1,9 +1,9 @@
 export enum ApiCode {
-  SUCCESS = 200,        // 成功
-  FAIL = 500,           // 服务器内部错误
-  UNAUTHORIZED = 401,   // 未授权 (Token失效/错误)
-  FORBIDDEN = 403,      // 无权限
-  NOT_FOUND = 404,      // 资源不存在
+  SUCCESS = 200,
+  FAIL = 500,
+  UNAUTHORIZED = 401,
+  FORBIDDEN = 403,
+  NOT_FOUND = 404,
 }
 
 export interface ApiResponse<T = any> {
@@ -12,8 +12,21 @@ export interface ApiResponse<T = any> {
   msg?: string;
 }
 
-// 定义 Hello 接口的具体返回数据
-export interface HelloData {
-  message: string;
-  timestamp: number;
+// === API Tester Types ===
+
+export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
+
+export interface ProxyRequestDto {
+  method: HttpMethod;
+  url: string;
+  headers?: Record<string, string>;
+  body?: any;
+}
+
+export interface ProxyResponseDto {
+  status: number;
+  statusText: string;
+  headers: Record<string, any>;
+  data: any;
+  timeTaken: number; // ms
 }
