@@ -108,7 +108,7 @@
   // UI State
   const activeTab = ref<'preview' | 'diff'>('preview');
   const method = ref<HttpMethod>('GET');
-  const url = ref('');
+  const url = ref('https://jsonplaceholder.typicode.com/todos/1');
   const requestBody = ref('');
   const isLoading = ref(false);
   const history = ref<any[]>([]);
