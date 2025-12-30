@@ -1,14 +1,13 @@
 import express from 'express';
 import cors from 'cors';
 import path from 'path';
-import dotenv from 'dotenv';
 import { initRoutes } from '@/routes';
-import { getServerPaths } from '@repo/shared/server';
+import { getServerPaths, loadSecureEnv } from '@repo/shared/node';
 
 const { PROJECT_ROOT, CLIENT_DIST_PATH } = getServerPaths(__dirname);
+loadSecureEnv(PROJECT_ROOT);
 
 const app = express();
-dotenv.config({ path: path.resolve(PROJECT_ROOT, '.env') });
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());

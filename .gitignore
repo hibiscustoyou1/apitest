@@ -14,5 +14,3 @@
 **/dist
 apps/server/prisma/migrations
 apps/server/prisma/db
-
-packages/wasm/target

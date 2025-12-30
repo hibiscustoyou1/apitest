@@ -1,11 +1,10 @@
 import { Router, Express } from 'express';
+
 import { helloRouter } from './hello.routes';
-import { proxyRouter } from './proxy.routes';
 
 const routes = Router();
 
 routes.use('/api', helloRouter);
-routes.use('/api', proxyRouter); // 注册 Proxy 路由
 
 export const initRoutes = (app: Express) => {
   app.use(routes);
